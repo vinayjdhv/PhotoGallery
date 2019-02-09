@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#FFEBEE">
+
+        <ImageView
+            android:id="@+id/photo"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:padding="10dp"/>
+
+        <TextView
+            android:id="@+id/user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Creator Name"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:paddingLeft="10dp"/>
+
+        <TextView
+            android:id="@+id/likes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="likes :"
+            android:paddingLeft="10dp"/>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

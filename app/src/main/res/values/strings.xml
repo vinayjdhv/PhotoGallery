@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">PhotoGallery</string>
+    <string name="search_photos">Search Photos</string>
+    <string name="enter_criteria">Enter Criteria</string>
+    <string name="ok">Ok</string>
+</resources>
