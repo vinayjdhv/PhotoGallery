@@ -1,4 +1,4 @@
-package ca.viclick.photogalary;
+package ca.viclick.photogalary.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +19,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+
+import ca.viclick.photogalary.adaptor.PhotoGalleryAdaptor;
+import ca.viclick.photogalary.R;
+import ca.viclick.photogalary.model.PhotoItem;
 
 public class PhotoGalleryActivity extends AppCompatActivity {
 
