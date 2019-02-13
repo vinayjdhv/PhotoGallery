@@ -1,4 +1,4 @@
-package ca.viclick.photogalary.model;
+package ca.viclick.photogallery.model;
 
 public class PhotoItem {
 

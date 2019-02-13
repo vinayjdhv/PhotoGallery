@@ -1,4 +1,4 @@
-package ca.viclick.photogalary.view;
+package ca.viclick.photogallery.view;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import ca.viclick.photogalary.R;
+import ca.viclick.photogallery.R;
 
 
 public class MainActivity extends AppCompatActivity {

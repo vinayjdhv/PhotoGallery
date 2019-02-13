@@ -1,4 +1,4 @@
-package ca.viclick.photogalary.view;
+package ca.viclick.photogallery.view;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
@@ -11,10 +11,10 @@ import android.support.v7.widget.RecyclerView;
 
 import java.util.List;
 
-import ca.viclick.photogalary.adaptor.PhotoGalleryAdaptor;
-import ca.viclick.photogalary.R;
-import ca.viclick.photogalary.model.PhotoItem;
-import ca.viclick.photogalary.viewmodel.PhotoGalleryViewModel;
+import ca.viclick.photogallery.adaptor.PhotoGalleryAdaptor;
+import ca.viclick.photogallery.R;
+import ca.viclick.photogallery.model.PhotoItem;
+import ca.viclick.photogallery.viewmodel.PhotoGalleryViewModel;
 
 public class PhotoGalleryActivity extends AppCompatActivity {
 

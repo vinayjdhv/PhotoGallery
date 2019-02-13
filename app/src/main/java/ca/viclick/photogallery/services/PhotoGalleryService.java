@@ -1,6 +1,5 @@
-package ca.viclick.photogalary.services;
+package ca.viclick.photogallery.services;
 
-import android.app.Application;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.content.Context;
@@ -20,7 +19,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import ca.viclick.photogalary.model.PhotoItem;
+import ca.viclick.photogallery.model.PhotoItem;
 
 public class PhotoGalleryService {
 

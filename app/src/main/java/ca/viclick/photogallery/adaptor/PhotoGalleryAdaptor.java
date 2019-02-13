@@ -1,6 +1,5 @@
-package ca.viclick.photogalary.adaptor;
+package ca.viclick.photogallery.adaptor;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,8 +12,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import ca.viclick.photogalary.R;
-import ca.viclick.photogalary.model.PhotoItem;
+import ca.viclick.photogallery.R;
+import ca.viclick.photogallery.model.PhotoItem;
 
 public class PhotoGalleryAdaptor extends RecyclerView.Adapter<PhotoGalleryAdaptor.PhotoGalleryViewHolder> {
 

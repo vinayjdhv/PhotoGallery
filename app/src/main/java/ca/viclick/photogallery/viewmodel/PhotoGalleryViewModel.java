@@ -1,4 +1,4 @@
-package ca.viclick.photogalary.viewmodel;
+package ca.viclick.photogallery.viewmodel;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
@@ -7,8 +7,8 @@ import android.support.annotation.NonNull;
 
 import java.util.List;
 
-import ca.viclick.photogalary.model.PhotoItem;
-import ca.viclick.photogalary.repository.PhotoRepository;
+import ca.viclick.photogallery.model.PhotoItem;
+import ca.viclick.photogallery.repository.PhotoRepository;
 
 public class PhotoGalleryViewModel extends AndroidViewModel {
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ca.viclick.photogalary">
+    package="ca.viclick.photogallery">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -11,15 +11,15 @@
         android:roundIcon="@drawable/ic_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.MainActivity">
+        <activity android:name="ca.viclick.photogallery.view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.PhotoGalleryActivity"
-            android:parentActivityName=".view.MainActivity"/>
+        <activity android:name="ca.viclick.photogallery.view.PhotoGalleryActivity"
+            android:parentActivityName="ca.viclick.photogallery.view.MainActivity"/>
     </application>
 
 </manifest>

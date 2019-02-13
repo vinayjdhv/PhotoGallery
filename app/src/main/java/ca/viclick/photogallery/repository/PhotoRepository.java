@@ -1,12 +1,12 @@
-package ca.viclick.photogalary.repository;
+package ca.viclick.photogallery.repository;
 
 import android.app.Application;
 import android.arch.lifecycle.LiveData;
 
 import java.util.List;
 
-import ca.viclick.photogalary.model.PhotoItem;
-import ca.viclick.photogalary.services.PhotoGalleryService;
+import ca.viclick.photogallery.model.PhotoItem;
+import ca.viclick.photogallery.services.PhotoGalleryService;
 
 public class PhotoRepository {
 
