@@ -1,4 +1,4 @@
-package ca.viclick.photogalary.activity;
+package ca.viclick.photogalary.view;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -14,10 +14,8 @@ import ca.viclick.photogalary.R;
 
 public class MainActivity extends AppCompatActivity {
 
-
     private EditText mKeyWord;
     private Button mSearch;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
