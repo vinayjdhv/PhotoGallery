@@ -1,10 +1,9 @@
-package ca.viclick.photogalary.activity;
+package ca.viclick.photogalary.services;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.app.Application;
+import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.MutableLiveData;
+import android.content.Context;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -19,41 +18,31 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import ca.viclick.photogalary.adaptor.PhotoGalleryAdaptor;
-import ca.viclick.photogalary.R;
 import ca.viclick.photogalary.model.PhotoItem;
 
-public class PhotoGalleryActivity extends AppCompatActivity {
+public class PhotoGalleryService {
 
 
-    private RequestQueue mRequestQueue;
-    private ArrayList<PhotoItem> mPhotoItemList;
-    private PhotoGalleryAdaptor mPhotoGalleryAdaptor;
-    private RecyclerView mRecyclerViewPhotos;
+    private MutableLiveData<List<PhotoItem>> mPhotoItemList;
+    private Context context;
 
+    public PhotoGalleryService(Context context) {
+        this.context = context;
+        mPhotoItemList = new MutableLiveData<>();
+    }
 
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_photo_gallary);
-
-        mRecyclerViewPhotos = findViewById(R.id.recycler_view_photos);
-        mRecyclerViewPhotos.setLayoutManager(new LinearLayoutManager(this));
-
-        mPhotoItemList = new ArrayList<>();
-
-        Intent intent = getIntent();
-        String keyword = intent.getStringExtra("KEY_WORD");
+    public LiveData<List<PhotoItem>> getmPhotoItemList(String keyword) {
         getPhotos(keyword);
+        return mPhotoItemList;
     }
 
     private void getPhotos(String keyWord) {
 
         String url = "https://pixabay.com/api/?key=11534654-995bd670e046d1afdd0e97daa&image_type=photo&pretty=true&q="+ keyWord;
 
-        mRequestQueue = Volley.newRequestQueue(this);
+        RequestQueue mRequestQueue = Volley.newRequestQueue(context);
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
                 url,
@@ -70,6 +59,7 @@ public class PhotoGalleryActivity extends AppCompatActivity {
         @Override
         public void onResponse(JSONObject response) {
 
+            List<PhotoItem> itemList = new ArrayList<>();
             try {
                 JSONArray jsonArray = response.getJSONArray("hits");
 
@@ -80,14 +70,10 @@ public class PhotoGalleryActivity extends AppCompatActivity {
                     String imageUrl = jsonObject.getString("previewURL");
                     int likes = jsonObject.getInt("likes");
                     String user = jsonObject.getString("user");
-                    mPhotoItemList.add(new PhotoItem(imageUrl, user, likes));
+                    itemList.add(new PhotoItem(imageUrl, user, likes));
 
                 }
-
-                mPhotoGalleryAdaptor = new PhotoGalleryAdaptor(PhotoGalleryActivity.this,
-                        mPhotoItemList);
-                mRecyclerViewPhotos.setAdapter(mPhotoGalleryAdaptor);
-
+                mPhotoItemList.postValue(itemList);
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -99,7 +85,7 @@ public class PhotoGalleryActivity extends AppCompatActivity {
     Response.ErrorListener errorListener = new Response.ErrorListener() {
         @Override
         public void onErrorResponse(VolleyError error) {
-            Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
         }
     };
 

@@ -11,15 +11,15 @@
         android:roundIcon="@drawable/ic_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.PhotoGalleryActivity"
-            android:parentActivityName=".activity.MainActivity"/>
+        <activity android:name=".view.PhotoGalleryActivity"
+            android:parentActivityName=".view.MainActivity"/>
     </application>
 
 </manifest>

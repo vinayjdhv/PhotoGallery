@@ -11,25 +11,24 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import ca.viclick.photogalary.R;
 import ca.viclick.photogalary.model.PhotoItem;
 
-public class PhotoGalleryAdaptor extends RecyclerView.Adapter <PhotoGalleryAdaptor.PhotoGalleryViewHolder>{
+public class PhotoGalleryAdaptor extends RecyclerView.Adapter<PhotoGalleryAdaptor.PhotoGalleryViewHolder> {
 
-    private Context mContext;
-    private ArrayList<PhotoItem> mPhotoItemList;
+    private List<PhotoItem> mPhotoItemList;
 
-    public PhotoGalleryAdaptor(Context mContext, ArrayList<PhotoItem> mPhotoItemList) {
-        this.mContext = mContext;
+    public void setmPhotoItemList(List<PhotoItem> mPhotoItemList) {
         this.mPhotoItemList = mPhotoItemList;
+        notifyDataSetChanged();
     }
 
     @NonNull
     @Override
     public PhotoGalleryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.photo_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.photo_item, parent, false);
         return new PhotoGalleryViewHolder(view);
     }
 
@@ -39,7 +38,7 @@ public class PhotoGalleryAdaptor extends RecyclerView.Adapter <PhotoGalleryAdapt
         PhotoItem photoItem = mPhotoItemList.get(i);
 
         photoGalleryViewHolder.user.setText(photoItem.getmUser());
-        String likes = "Likes :" +photoItem.getmLikes();
+        String likes = "Likes :" + photoItem.getmLikes();
         photoGalleryViewHolder.likes.setText(likes);
 
         Picasso.get()
@@ -52,10 +51,13 @@ public class PhotoGalleryAdaptor extends RecyclerView.Adapter <PhotoGalleryAdapt
 
     @Override
     public int getItemCount() {
+        if (mPhotoItemList == null) {
+            return 0;
+        }
         return mPhotoItemList.size();
     }
 
-    public class PhotoGalleryViewHolder extends RecyclerView.ViewHolder{
+    public class PhotoGalleryViewHolder extends RecyclerView.ViewHolder {
 
         private ImageView photo;
         private TextView user;
@@ -67,7 +69,6 @@ public class PhotoGalleryAdaptor extends RecyclerView.Adapter <PhotoGalleryAdapt
             photo = itemView.findViewById(R.id.photo);
             user = itemView.findViewById(R.id.user);
             likes = itemView.findViewById(R.id.likes);
-
         }
     }
 
